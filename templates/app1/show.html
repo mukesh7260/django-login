@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>SHOW PAGE</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CUSTOMER ID</th>
+                <th>NAME</th>
+                <th>PRODUCT</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+            <tr>
+                <td>{{record.c_id}}</td>
+                <td>{{record.name}}</td>
+                <td>{{record.product}}</td>
+                <td>{{record.quantity}}</td>
+                <td>{{record.price}}</td>
+                <td>
+                    <a href="{% url 'update_url' record.id %}"><button class="btn btn-success">UPDATE</button></a>
+                    <a href="{% url 'delete_url' record.id %}"><button class="btn btn-danger">DELETE</button></a>
+                </td>
+          
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+  
+    {% endblock %}
+</body>
+</html>

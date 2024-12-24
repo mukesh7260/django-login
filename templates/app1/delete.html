@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>DELETE CONFIRMATION PAGE</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>DELETE CONFIRMATION</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>DO YOU REALLY WANT TO DELETE <span style="color: red;">{{data.c_id}}{{data.name}}</span> RECORD?</p>
+        <input type="submit" value="YES"  class="btn btn-success col-3">
+        <a href="{% url 'show_url' %}"><button type="button" class="btn btn-danger col-3">NO</button></a>
+
+    </form>
+</div>
+{% endblock %}
